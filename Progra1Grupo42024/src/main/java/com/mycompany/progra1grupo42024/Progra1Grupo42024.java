@@ -11,6 +11,6 @@ package com.mycompany.progra1grupo42024;
 public class Progra1Grupo42024 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println("Hello comrades");
     }
 }
