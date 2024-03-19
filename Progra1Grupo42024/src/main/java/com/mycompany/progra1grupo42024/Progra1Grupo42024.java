@@ -12,5 +12,6 @@ public class Progra1Grupo42024 {
 
     public static void main(String[] args) {
         System.out.println("Hello comrades");
+        System.out.println("Hola Prueba");
     }
 }
