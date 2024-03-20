@@ -14,5 +14,6 @@ public class Progra1Grupo42024 {
         System.out.println("Hello comrades");
         System.out.println("Hola Prueba");
         System.out.println("Oscar Oso Maduro");
+        System.out.println("hola");
     }
 }
