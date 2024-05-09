@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-
+//88899999999999977777
 public class Menu {
 public static Scanner entrada = new Scanner(System.in);
     public static boolean estado = false;
@@ -16,10 +16,6 @@ public static Scanner entrada = new Scanner(System.in);
     static ArrayList<Vehiculos> Avion1 = new ArrayList<Vehiculos>();
     public static int numero, conteo, conteo1, conteo2;
     public static int[] numeros = new int[10];
-
-    public static void menu1() {
-
-    }
 
     public static void faseUno() {
         do {
