@@ -297,14 +297,36 @@ public static Scanner entrada = new Scanner(System.in);
 
     public static void mostrarDatos() {
         int re;
+        
+      
 
-        System.out.print("\nEstos son sus Vehiculos\n"
+if(Carro1.isEmpty()) {
+    System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Carro.");
+} else {
+    System.out.println("El ArrayList contiene estos datos.");
+    System.out.print("\nEstos son sus Vehiculos\n"
                 + "\nEstos son los Carros: " + Carro1.toString());
-        System.out.println("");
-        System.out.println("\nEstas son las Balsas " + Balsa1.toString());
-        System.out.println("");
-        System.out.println("\nEstos son los Aviones " + Avion1.toString());
-        System.out.println("");
+}
+
+
+if(Balsa1.isEmpty()) {
+    System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Balsa.");
+} else {
+    System.out.println("El ArrayList contiene estos datos.");
+    System.out.println("\nEstas son las Balsas " + Balsa1.toString());
+    System.out.println("");
+}
+
+
+
+if(Avion1.isEmpty()) {
+    System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Avion.");
+} else {
+    System.out.println("El ArrayList contiene estos datos.");
+    System.out.println("\nEstos son los Aviones " + Avion1.toString());
+    System.out.println("");
+}
+        
         do {
             System.out.println("A donde le gustaria Regresar ");
             System.out.println("1. Menu Principal ");
@@ -392,10 +414,10 @@ public static Scanner entrada = new Scanner(System.in);
             System.out.println("\n------------------------------");
             System.out.println("1:Desea Ingresar un Carro");
             System.out.println("2:Desea Ingresar una Balsa");
-            System.out.println("3:Desea ingresar un Avión");
-            System.out.println("4:Desea regrear al Menu Principal");
+            System.out.println("3:Desea Ingresar un Avión");
+            System.out.println("4:Desea regresar al Menu Principal");
             if (conteo == 10) {
-                System.out.println("5: Desea ordenar el arreglo");
+                System.out.println("5: Desea Ordenar el arreglo");
                 System.out.println("6. Desea Mostrar el Arreglo");
             }
             try {
