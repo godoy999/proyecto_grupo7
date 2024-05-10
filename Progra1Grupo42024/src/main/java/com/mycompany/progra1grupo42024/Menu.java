@@ -119,7 +119,7 @@ public static Scanner entrada = new Scanner(System.in);
                 // Verificar si el número ya ha sido ingresado antes
                 boolean repetido = false;
                 for (int j = 0; j < contador; j++) {
-                    System.out.println("en el ford linea 128 " + numeros[j]);
+                    
                     if (numeros[j] == numero) {
                         repetido = true;
                         break;
