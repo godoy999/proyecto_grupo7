@@ -150,8 +150,8 @@ public static Scanner entrada = new Scanner(System.in);
                 }
                 if (!repetido) {
                     System.out.print("Desea ingresar otro Carro ");
-                    System.out.println("\ns = si ");
-                    System.out.println("n = no ");
+                    System.out.println("\ns = si  ");
+                    System.out.println("n = no  ");
                     System.out.print("Seleccione una opción: ");
                     respuesta = entrada.next().charAt(0);
                     if (respuesta == 's' || respuesta == 'S') {
