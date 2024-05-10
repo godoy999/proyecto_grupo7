@@ -210,7 +210,7 @@ public static Scanner entrada = new Scanner(System.in);
                 } else {
                     System.out.println("El número ya ha sido ingresado. Ingrese otro número.");
                     i--; // Para que se pida nuevamente el mismo número
-                    break;
+                    
                 }
                 if (!repetido) {
                     System.out.print("Desea ingresar otra balsa ");
