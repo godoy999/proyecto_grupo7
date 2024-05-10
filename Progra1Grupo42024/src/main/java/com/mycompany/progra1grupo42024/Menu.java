@@ -7,7 +7,8 @@ import java.util.Scanner;
 
 //88899999999999977777
 public class Menu {
-public static Scanner entrada = new Scanner(System.in);
+
+    public static Scanner entrada = new Scanner(System.in);
     public static boolean estado = false;
     public static char respuesta;
     public static int a, contador = 0;
@@ -119,7 +120,7 @@ public static Scanner entrada = new Scanner(System.in);
                 // Verificar si el número ya ha sido ingresado antes
                 boolean repetido = false;
                 for (int j = 0; j < contador; j++) {
-                    
+
                     if (numeros[j] == numero) {
                         repetido = true;
                         break;
@@ -164,6 +165,9 @@ public static Scanner entrada = new Scanner(System.in);
 
             }
         } while (estado && conteo < 10);
+        if (conteo == 10) {
+            System.out.println("El arreglo se ha completado con 10 posiciones");
+        }
         SegundaFase();
 
     }
@@ -210,7 +214,7 @@ public static Scanner entrada = new Scanner(System.in);
                 } else {
                     System.out.println("El número ya ha sido ingresado. Ingrese otro número.");
                     i--; // Para que se pida nuevamente el mismo número
-                    
+
                 }
                 if (!repetido) {
                     System.out.print("Desea ingresar otra balsa ");
@@ -228,7 +232,10 @@ public static Scanner entrada = new Scanner(System.in);
             }
 
         } while (estado && conteo < 10);
-        Principal();
+        if (conteo == 10) {
+            System.out.println("El arreglo se ha completado con 10 posiciones");
+        }
+        SegundaFase();
 
     }
 
@@ -292,41 +299,39 @@ public static Scanner entrada = new Scanner(System.in);
             }
 
         } while (estado && conteo < 10);
-        Principal();
+        if (conteo == 10) {
+            System.out.println("El arreglo se ha completado con 10 posiciones");
+        }
+        SegundaFase();
     }
 
     public static void mostrarDatos() {
         int re;
-        
-      
 
-if(Carro1.isEmpty()) {
-    System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Carro.");
-} else {
-    System.out.println("El ArrayList contiene estos datos.");
-    System.out.print("\nEstos son sus Vehiculos\n"
-                + "\nEstos son los Carros: " + Carro1.toString());
-}
+        if (Carro1.isEmpty()) {
+            System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Carro.");
+        } else {
+            System.out.println("El ArrayList contiene estos datos.");
+            System.out.print("\nEstos son sus Vehiculos\n"
+                    + "\nEstos son los Carros: " + Carro1.toString());
+        }
 
+        if (Balsa1.isEmpty()) {
+            System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Balsa.");
+        } else {
+            System.out.println("El ArrayList contiene estos datos.");
+            System.out.println("\nEstas son las Balsas " + Balsa1.toString());
+            System.out.println("");
+        }
 
-if(Balsa1.isEmpty()) {
-    System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Balsa.");
-} else {
-    System.out.println("El ArrayList contiene estos datos.");
-    System.out.println("\nEstas son las Balsas " + Balsa1.toString());
-    System.out.println("");
-}
+        if (Avion1.isEmpty()) {
+            System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Avion.");
+        } else {
+            System.out.println("El ArrayList contiene estos datos.");
+            System.out.println("\nEstos son los Aviones " + Avion1.toString());
+            System.out.println("");
+        }
 
-
-
-if(Avion1.isEmpty()) {
-    System.out.println("El ArrayList se encuentra vacio porque no encontro registro de Avion.");
-} else {
-    System.out.println("El ArrayList contiene estos datos.");
-    System.out.println("\nEstos son los Aviones " + Avion1.toString());
-    System.out.println("");
-}
-        
         do {
             System.out.println("A donde le gustaria Regresar ");
             System.out.println("1. Menu Principal ");
@@ -417,8 +422,8 @@ if(Avion1.isEmpty()) {
             System.out.println("3:Desea Ingresar un Avión");
             System.out.println("4:Desea regresar al Menu Principal");
             if (conteo == 10) {
-                System.out.println("5: Desea Ordenar el arreglo");
-                System.out.println("6. Desea Mostrar el Arreglo");
+                System.out.println("5.Desea Ordenar el arreglo");
+                System.out.println("6.Desea Mostrar el Arreglo");
             }
             try {
                 fase2 = entrada.nextInt();
@@ -444,9 +449,16 @@ if(Avion1.isEmpty()) {
                         System.out.println("En Que forma desea ordenar el Arreglo ");
                         System.out.println("1. Descendente");
                         System.out.println("2. Ascendente");
-                        System.out.print("Que opcion desea: ");
-                        a = entrada.nextInt();
-                        imprimirArreglo(numeros);
+                        System.out.print("¿Que opcion desea?: ");
+                        try {
+                            a = entrada.nextInt();
+                            imprimirArreglo(numeros);
+                        } catch (Exception e) {
+                            System.out.println("Ha ocurrido una Excepcion");
+                            System.out.println("Por favor ingrese solo 'Numeros Enteros' ");
+                            entrada.next();
+                            estado = true;
+                        }
                         break;
                     case 6:
                         mostrarDatos();
