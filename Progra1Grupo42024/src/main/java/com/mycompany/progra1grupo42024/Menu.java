@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-//88899999999999977777
+
 public class Menu {
 
     public static Scanner entrada = new Scanner(System.in);
@@ -172,6 +172,7 @@ public class Menu {
         } catch (Exception e) {
             System.out.print("Ha Ocurrido Una Excepción. ");
             System.out.print("\nFavor Ingrese Un Numero Entero. ");
+            entrada.next();
         }
         SegundaFase();
 
@@ -244,6 +245,7 @@ public class Menu {
         } catch (Exception e) {
             System.out.print("Ha Ocurrido Una Excepción. ");
             System.out.print("\nFavor Ingrese Un Numero Entero. ");
+            entrada.next();
              } 
         SegundaFase();
 
@@ -315,6 +317,7 @@ public class Menu {
         } catch (Exception e) {
             System.out.print("Ha Ocurrido Una Excepción. ");
             System.out.print("\nFavor Ingrese Un Numero Entero. ");
+            entrada.next();
              } 
         SegundaFase();
     }
@@ -435,6 +438,7 @@ public class Menu {
             System.out.println("2:Desea Ingresar una Balsa");
             System.out.println("3:Desea Ingresar un Avión");
             System.out.println("4:Desea regresar al Menu Principal");
+            System.out.print("Ingrese una opción: ");
             if (conteo == 10) {
                 System.out.println("5.Desea Ordenar el arreglo");
                 System.out.println("6.Desea Mostrar el Arreglo");
