@@ -1,5 +1,6 @@
 package com.mycompany.progra1grupo42024;
 
+import static com.mycompany.progra1grupo42024.torre.Torre;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,7 +40,7 @@ public class Menu {
                         mostrarDatos();
                         break;
                     case 3:
-                        System.out.println("Aun no");
+                        Torre();
                         break;
 
                     case 4: //regresamos al menu principal
