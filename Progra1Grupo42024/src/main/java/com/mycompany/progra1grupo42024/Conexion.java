@@ -5,7 +5,6 @@ package com.mycompany.progra1grupo42024;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import java.sql.Statement;
 
 
@@ -17,6 +16,7 @@ public class Conexion {
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(Direccion, Usuario, Password);
     }
+    
  /*public static void main(String[] args) {
     
    try{
