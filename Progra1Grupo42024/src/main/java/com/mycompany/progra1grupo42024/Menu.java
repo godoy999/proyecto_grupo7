@@ -1,11 +1,16 @@
 package com.mycompany.progra1grupo42024;
 
+import static com.mycompany.progra1grupo42024.Prueba.entrada;
 import static com.mycompany.progra1grupo42024.torre.Torre;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
-
 
 public class Menu {
 
@@ -183,71 +188,71 @@ public class Menu {
         String MarcaV;
         String ColorV, ReMot;
         int Id = 0;
-        try{
-        do {
+        try {
+            do {
 
-            System.out.println("Ingrese 10 Vehiculos:");
-            // Iterar para ingresar 10 números
-            for (int i = conteo; i < 10; i++) {
-                System.out.print("Número Identificador de Balsa [" + (i + 1) + "] es: ");
-                numero = entrada.nextInt();
-                conteo++;
+                System.out.println("Ingrese 10 Vehiculos:");
+                // Iterar para ingresar 10 números
+                for (int i = conteo; i < 10; i++) {
+                    System.out.print("Número Identificador de Balsa [" + (i + 1) + "] es: ");
+                    numero = entrada.nextInt();
+                    conteo++;
 
-                // Verificar si el número ya ha sido ingresado antes
-                boolean repetido = false;
-                for (int j = 0; j < contador; j++) {
-                    if (numeros[j] == numero) {
-                        repetido = true;
-                        break;
+                    // Verificar si el número ya ha sido ingresado antes
+                    boolean repetido = false;
+                    for (int j = 0; j < contador; j++) {
+                        if (numeros[j] == numero) {
+                            repetido = true;
+                            break;
+                        }
                     }
-                }
 
-                // Si el número no está repetido, se agrega al array
-                if (!repetido) {
-                    numeros[contador] = numero;
-                    contador++;
-                    Id = numero;
-                    entrada.nextLine();
-                    System.out.print("\nDigite el color de la balsa: ");
-                    ColorV = entrada.nextLine();
-                    System.out.print("Digite la Marca de la balsa : ");
-                    MarcaV = entrada.nextLine();
-                    System.out.print("Digite si la balsa se mueve con remo o motor : ");
-                    ReMot = entrada.nextLine();
-                    Balsa balsa = new Balsa(MarcaV, ColorV, Id, ReMot);
+                    // Si el número no está repetido, se agrega al array
+                    if (!repetido) {
+                        numeros[contador] = numero;
+                        contador++;
+                        Id = numero;
+                        entrada.nextLine();
+                        System.out.print("\nDigite el color de la balsa: ");
+                        ColorV = entrada.nextLine();
+                        System.out.print("Digite la Marca de la balsa : ");
+                        MarcaV = entrada.nextLine();
+                        System.out.print("Digite si la balsa se mueve con remo o motor : ");
+                        ReMot = entrada.nextLine();
+                        Balsa balsa = new Balsa(MarcaV, ColorV, Id, ReMot);
 
-                    System.out.println("");
-                    Balsa1.add(balsa);
+                        System.out.println("");
+                        Balsa1.add(balsa);
 
-                } else {
-                    System.out.println("El número ya ha sido ingresado. Ingrese otro número.");
-                    i--; // Para que se pida nuevamente el mismo número
-
-                }
-                if (!repetido) {
-                    System.out.print("Desea ingresar otra balsa ");
-                    System.out.println("\ns = si ");
-                    System.out.println("n = no ");
-                    System.out.print("Seleccione una opción: ");
-                    respuesta = entrada.next().charAt(0);
-                    if (respuesta == 's' || respuesta == 'S') {
-                        estado = true;
                     } else {
-                        SegundaFase();
+                        System.out.println("El número ya ha sido ingresado. Ingrese otro número.");
+                        i--; // Para que se pida nuevamente el mismo número
+
                     }
+                    if (!repetido) {
+                        System.out.print("Desea ingresar otra balsa ");
+                        System.out.println("\ns = si ");
+                        System.out.println("n = no ");
+                        System.out.print("Seleccione una opción: ");
+                        respuesta = entrada.next().charAt(0);
+                        if (respuesta == 's' || respuesta == 'S') {
+                            estado = true;
+                        } else {
+                            SegundaFase();
+                        }
+                    }
+
                 }
 
+            } while (estado && conteo < 10);
+            if (conteo == 10) {
+                System.out.println("El arreglo se ha completado con 10 posiciones");
             }
-
-        } while (estado && conteo < 10);
-        if (conteo == 10) {
-            System.out.println("El arreglo se ha completado con 10 posiciones");
-        }
         } catch (Exception e) {
             System.out.print("Ha Ocurrido Una Excepción. ");
             System.out.print("\nFavor Ingrese Un Numero Entero. ");
             entrada.next();
-             } 
+        }
         SegundaFase();
 
     }
@@ -257,69 +262,69 @@ public class Menu {
         String MarcaV;
         String ColorV;
         int PasajerosA, Id;
-        try{
-        do {
-            System.out.println("Ingrese 10 Vehiculos:");
-            for (int i = conteo; i < 10; i++) {
-                System.out.print("Número Identificador de Avion [" + (i + 1) + "] es : ");
-                numero = entrada.nextInt();
-                conteo++;
+        try {
+            do {
+                System.out.println("Ingrese 10 Vehiculos:");
+                for (int i = conteo; i < 10; i++) {
+                    System.out.print("Número Identificador de Avion [" + (i + 1) + "] es : ");
+                    numero = entrada.nextInt();
+                    conteo++;
 
-                // Verificar si el número ya ha sido ingresado antes
-                boolean repetido = false;
-                for (int j = 0; j < contador; j++) {
-                    if (numeros[j] == numero) {
-                        repetido = true;
-                        break;
+                    // Verificar si el número ya ha sido ingresado antes
+                    boolean repetido = false;
+                    for (int j = 0; j < contador; j++) {
+                        if (numeros[j] == numero) {
+                            repetido = true;
+                            break;
+                        }
                     }
-                }
 
-                // Si el número no está repetido, se agrega al array
-                if (!repetido) {
-                    numeros[contador] = numero;
-                    contador++;
-                    Id = numero;
-                    entrada.nextLine();
-                    System.out.print("\nDigite el color del Avion: ");
-                    ColorV = entrada.nextLine();
-                    System.out.print("Digite la Marca del Avion : ");
-                    MarcaV = entrada.nextLine();
-                    System.out.print("Digite la Cantidad de pasajeros (Numeros) : ");
-                    PasajerosA = entrada.nextInt();
-                    Avion avion = new Avion(MarcaV, ColorV, Id, PasajerosA);
+                    // Si el número no está repetido, se agrega al array
+                    if (!repetido) {
+                        numeros[contador] = numero;
+                        contador++;
+                        Id = numero;
+                        entrada.nextLine();
+                        System.out.print("\nDigite el color del Avion: ");
+                        ColorV = entrada.nextLine();
+                        System.out.print("Digite la Marca del Avion : ");
+                        MarcaV = entrada.nextLine();
+                        System.out.print("Digite la Cantidad de pasajeros (Numeros) : ");
+                        PasajerosA = entrada.nextInt();
+                        Avion avion = new Avion(MarcaV, ColorV, Id, PasajerosA);
 
-                    System.out.println("");
-                    Avion1.add(avion);
+                        System.out.println("");
+                        Avion1.add(avion);
 
-                } else {
-                    System.out.println("El número ya ha sido ingresado. Ingrese otro número.");
-                    i--; // Para que se pida nuevamente el mismo número
-
-                }
-                if (!repetido) {
-                    System.out.print("Desea ingresar otro Avion ");
-                    System.out.println("\ns = si ");
-                    System.out.println("n = no ");
-                    System.out.print("Seleccione una opción: ");
-                    respuesta = entrada.next().charAt(0);
-                    if (respuesta == 's' || respuesta == 'S') {
-                        estado = true;
                     } else {
-                        SegundaFase();
+                        System.out.println("El número ya ha sido ingresado. Ingrese otro número.");
+                        i--; // Para que se pida nuevamente el mismo número
+
                     }
+                    if (!repetido) {
+                        System.out.print("Desea ingresar otro Avion ");
+                        System.out.println("\ns = si ");
+                        System.out.println("n = no ");
+                        System.out.print("Seleccione una opción: ");
+                        respuesta = entrada.next().charAt(0);
+                        if (respuesta == 's' || respuesta == 'S') {
+                            estado = true;
+                        } else {
+                            SegundaFase();
+                        }
+                    }
+
                 }
 
+            } while (estado && conteo < 10);
+            if (conteo == 10) {
+                System.out.println("El arreglo se ha completado con 10 posiciones");
             }
-
-        } while (estado && conteo < 10);
-        if (conteo == 10) {
-            System.out.println("El arreglo se ha completado con 10 posiciones");
-        }
         } catch (Exception e) {
             System.out.print("Ha Ocurrido Una Excepción. ");
             System.out.print("\nFavor Ingrese Un Numero Entero. ");
             entrada.next();
-             } 
+        }
         SegundaFase();
     }
 
@@ -391,7 +396,7 @@ public class Menu {
             System.out.println("\n----------------------------------");
             System.out.println("1.Fase 1");
             System.out.println("2.Fase 2: 'Arreglos' ");
-            System.out.println("3.Fase 3");
+            System.out.println("3.Fase 3: -Base de Datos");
             System.out.println("4.Desea Salir del Menu");
             System.out.print("Que opcion desea: ");
             try {
@@ -408,7 +413,7 @@ public class Menu {
                         estado = true;
                         break;
                     case 3:
-                        System.out.println("Esta opcion Aun no esta disponible");
+                        terceraFase();
                         estado = true;
                         break;
                     case 4:
@@ -648,4 +653,109 @@ public class Menu {
         }
     }
 
+    public static void terceraFase() {
+        do {
+            System.out.println("1. Desea trabajar con Carros ");
+            System.out.println("2. Desea trabajar con Balsas");
+            System.out.println("3. Desea trabajar con Aviones");
+            System.out.println("4. Desea Regresar al menu principal");
+            System.out.print("Que opcion desea:  ");
+            try {
+                a = entrada.nextInt();
+                System.out.println("---------------------------------");
+
+                switch (a) {
+                    case 1:
+                        trabajarCarro();
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+                        System.out.println("En estos momentos esta regresando al Menu Principal");
+                        Principal();
+                        break;
+                    default:
+                        System.out.println("El numero ingresado no se encuentra Disponible ");
+                        System.out.println("Intentelo de nuevo");
+
+                }
+
+            } catch (Exception e) {
+                System.out.println("Ha ocurrido una Excepcion");
+                System.out.println("Por favor ingrese solo 'Numeros Enteros' ");
+                entrada.next();
+                estado = true;
+            }
+        } while (estado);
+    }
+
+    public static void trabajarCarro() {
+        do {
+            System.out.println("1. Desea Insertar Carros ");
+            System.out.println("2. Desea Consular Carros");
+            System.out.println("3. Desea Actualizar Carros");
+            System.out.println("4. Desea Eliminar Carro");
+            System.out.println("5. Desea Regresar al sub Menu ");
+            System.out.print("Que opcion desea:  ");
+            try {
+                a = entrada.nextInt();
+                System.out.println("---------------------------------");
+
+                switch (a) {
+                    case 1:
+                        InsertarCarro();
+                        break;
+                    case 2:
+                        
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+                        
+                        break;
+                    case 5:
+                        System.out.println("En estos momentos esta regresando al Menu Principal");
+                        Principal();
+                        break;
+                    default:
+                        System.out.println("El numero ingresado no se encuentra Disponible ");
+                        System.out.println("Intentelo de nuevo");
+
+                }
+
+            } catch (Exception e) {
+                System.out.println("Ha ocurrido una Excepcion");
+                System.out.println("Por favor ingrese solo 'Numeros Enteros' ");
+                entrada.next();
+                estado = true;
+            }
+        } while (estado);
+    }
+
+    public static void InsertarCarro() {
+        int ID;
+        String Marca, Color, Combustible;
+        Tabla datos = new Tabla();
+        System.out.println("Ingrese un Id");
+        ID = entrada.nextInt();
+        entrada.nextLine();
+        System.out.println("Ingrese La Marca: ");
+        Marca = entrada.nextLine();
+        System.out.println("Ingrese el Color: ");
+        Color = entrada.nextLine();
+        System.out.println("Tipo de combustible: ");
+        Combustible = entrada.nextLine();
+        datos.AguardarCarro(ID, Marca, Color, Combustible);
+        Carro carro = new Carro(Marca, Color, ID, Combustible);
+
+        System.out.println("");
+        Carro1.add(carro);
+
+    }
 }
+    

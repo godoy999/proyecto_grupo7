@@ -2,30 +2,30 @@ package com.mycompany.progra1grupo42024;
 
 public class Vehiculos {
    
-   protected String MarcaV;
-    protected String ColorV;
-    protected int Id;
+   protected String Marca;
+    protected String Color;
+    protected int ID;
 
-    public Vehiculos(String MarcaV, String ColorV, int Id) {
-        this.MarcaV = MarcaV;
-        this.ColorV = ColorV;
-        this.Id = Id;
+    public Vehiculos(String Marca, String Color, int ID) {
+        this.Marca = Marca;
+        this.Color = Color;
+        this.ID = ID;
     }
 
     public String getMarcaV() {
-        return MarcaV;
+        return Marca;
     }
 
     public String getColorV() {
-        return ColorV;
+        return Color;
     }
     public int getId(){
-    return Id;
+    return ID;
     }
 
     @Override
     public String toString() {
-        return "\nEl identificador del Vehiculo es:  "+Id +" \nEl color es : " + ColorV + "\nLa marca es: "+ MarcaV;
+        return "\nEl identificador del Vehiculo es:  "+ID +" \nEl color es : " + Color + "\nLa marca es: "+ Marca;
     } 
     
 }

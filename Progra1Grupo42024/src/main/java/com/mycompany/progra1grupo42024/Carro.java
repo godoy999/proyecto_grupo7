@@ -1,21 +1,20 @@
 package com.mycompany.progra1grupo42024;
 
-import java.util.Scanner;
 
 public class Carro extends Vehiculos{
     
-    private String GasolinaC;
+    private String Combustible;
     
-    public Carro(String MarcaV, String ColorV,int Id, String GasolinaC) {
-        super(MarcaV, ColorV,Id);
-        this.GasolinaC = GasolinaC;
+    public Carro(String Marca, String Color,int ID, String Combustible) {
+        super(Marca, Color,ID);
+        this.Combustible = Combustible;
     }
     public String getGasolinaC() {
-        return GasolinaC;
+        return Combustible;
     }
 
     @Override
     public String toString() {
-        return "\n"+super.toString()+"" + "\nEl tipo de Gasolina que utiliza es : " +GasolinaC + "   ";
+        return "\n"+super.toString()+"" + "\nEl tipo de Gasolina que utiliza es : " +Combustible + "   ";
     }
 }
