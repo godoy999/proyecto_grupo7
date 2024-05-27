@@ -710,7 +710,7 @@ public class Menu {
                         InsertarCarro();
                         break;
                     case 2:
-                        
+                        System.out.println("");
                         break;
                     case 3:
 
