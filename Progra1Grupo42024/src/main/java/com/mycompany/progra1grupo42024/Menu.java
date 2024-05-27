@@ -733,6 +733,7 @@ public class Menu {
                 System.out.println("Por favor ingrese solo 'Numeros Enteros' ");
                 entrada.next();
                 estado = true;
+                System.out.println("");
             }
         } while (estado);
     }
