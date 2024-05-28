@@ -6,8 +6,12 @@ public class Balsa extends Vehiculos{
     
     private String ReMot;
 
-    public Balsa(String ReMot, String MarcaV,int Id, String ColorV) {
-        super(MarcaV, ColorV, Id);
+    public Balsa(String ReMot, String Marca,int ID, String Color) {
+        super(Marca, Color, ID);
+        this.ReMot = ReMot;
+    }
+
+    public void setReMot(String ReMot) {
         this.ReMot = ReMot;
     }
 

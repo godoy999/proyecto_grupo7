@@ -12,6 +12,18 @@ public class Vehiculos {
         this.ID = ID;
     }
 
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
+    }
+
+    public void setColor(String Color) {
+        this.Color = Color;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
     public String getMarcaV() {
         return Marca;
     }

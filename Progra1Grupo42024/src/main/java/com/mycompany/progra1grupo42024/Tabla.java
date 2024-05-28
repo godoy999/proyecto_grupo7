@@ -4,6 +4,7 @@ package com.mycompany.progra1grupo42024;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class Tabla{
@@ -26,6 +27,8 @@ public class Tabla{
             e.printStackTrace();
         }
     }
+   List<Vehiculos> persons = dao.getAllPersons();
+        persons.forEach(person -> System.out.println(person.getName()));
     
     
     

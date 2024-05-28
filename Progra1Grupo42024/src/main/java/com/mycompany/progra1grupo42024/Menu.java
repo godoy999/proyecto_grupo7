@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -758,6 +759,33 @@ public class Menu {
         System.out.println("");
         Carro1.add(carro);
 
+    }
+    public List<Carro> getAllVehiculos() {
+        List<Carro> datos = new ArrayList<>();
+        String query = "SELECT * FROM carro";
+        try (Connection conn = Conexion.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                datos.add(new Carro(rs.getString("Marca"), rs.getString("Color"),rs.getInt("ID"),rs.getString("Combustible")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return datos;
+    }
+
+    public void updatePerson(Person person) {
+        String query = "UPDATE persons SET name = ?, email = ? WHERE id = ?";
+        try (Connection conn = Conexion.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, person.getName());
+            stmt.setString(2, person.getEmail());
+            stmt.setInt(3, person.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
     

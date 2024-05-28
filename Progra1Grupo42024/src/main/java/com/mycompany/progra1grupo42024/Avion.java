@@ -5,8 +5,12 @@ public class Avion extends Vehiculos{
     
    private int PasajerosA;
     
-     public Avion(String MarcaV, String ColorV,int Id, int PasajerosA) {
-        super(MarcaV, ColorV,Id);
+     public Avion(String Marca, String Color,int ID, int PasajerosA) {
+        super(Marca, Color,ID);
+        this.PasajerosA = PasajerosA;
+    }
+
+    public void setPasajerosA(int PasajerosA) {
         this.PasajerosA = PasajerosA;
     }
 

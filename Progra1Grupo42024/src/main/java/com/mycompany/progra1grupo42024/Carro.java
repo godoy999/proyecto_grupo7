@@ -9,6 +9,10 @@ public class Carro extends Vehiculos{
         super(Marca, Color,ID);
         this.Combustible = Combustible;
     }
+
+    public void setCombustible(String Combustible) {
+        this.Combustible = Combustible;
+    }
     public String getGasolinaC() {
         return Combustible;
     }
