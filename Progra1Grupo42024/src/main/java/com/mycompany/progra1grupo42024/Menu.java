@@ -40,6 +40,7 @@ public class Menu {
                 switch (resultado) {
                     case 1:
                         ingresarVehiculo();
+                        System.out.println("tesss");
                         break;
                     case 2:
                         mostrarDatos();
